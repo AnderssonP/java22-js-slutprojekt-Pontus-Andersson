@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Bildgenerator</h1>
+    <form id="search-form">
+      <input type="text" id="search-text" placeholder="Sök efter bild">
+      <input type="number" id="image-count" placeholder="antal bilder">
+      <select id="image-size">
+        <option value="small">små</option>
+        <option value="medium">Mellan</option>
+        <option value="large">Stora</option>
+      </select>
+      <select id="sort-order">
+        <option value="date">Datum</option>
+        <option value="relevance">relevans</option>
+        <option value="interestingness">Mest intressanta</option>
+      </select>
+      <button type="submit">Sök</button>
+    </form>
+    <div>
+        <p id="results"></p>
+    </div>
+  </body>
+</html>
+</html>
