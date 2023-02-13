@@ -41,12 +41,18 @@ form.addEventListener("submit", event => {
 // hämtar url och gör om till JSON format
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&text=${textValue}&per_page=${countValue}&sort=${sortOpt}&format=json&nojsoncallback=1`;
   fetch(url)
-    .then(response => response.json()).then(data => {
-        // Kollar så alla fält är ifyllda
-      if (!textValue || !countValue) {
-        resultEl.innerHTML = "Fyll i alla fält!";
-        return;
-      }
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Status code error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Kollar så alla fält är ifyllda
+    if (!textValue || !countValue) {
+      resultEl.innerHTML = "Fyll i alla fält!";
+      return;
+    }
     //   hämtar storlekar på bilderna
       data.photos.photo.forEach(photo => {
         switch (sizeValue) {
